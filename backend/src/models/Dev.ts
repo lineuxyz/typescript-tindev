@@ -1,4 +1,10 @@
 import { Schema, model } from 'mongoose'
+import { UserInterface } from '../interfaces/Dev'
+
+export interface UserModel extends UserInterface, Document {
+  likes(): object,
+  deslikes(): object
+}
 
 const DevSchema = new Schema(
   {
@@ -14,7 +20,15 @@ const DevSchema = new Schema(
     avatar: {
       type: String,
       required: true
-    }
+    },
+    likes: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Dev'
+    }],
+    deslikes: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Dev'
+    }]
   },
   {
     timestamps: true
