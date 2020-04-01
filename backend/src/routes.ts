@@ -1,8 +1,14 @@
-import express from 'express'
+import { Router } from 'express'
 import DevController from './controllers/DevController'
+import LikeController from './controllers/LikeController'
+import DeslikeController from './controllers/DeslikeController'
 
-const routes = express.Router()
+const routes = Router()
 
-routes.post('/devs', DevController)
+routes.get('/devs', DevController.index)
+routes.post('/devs', DevController.store)
+
+routes.post('/devs/:devId/likes', LikeController.store)
+routes.post('/devs/:devId/deslike', DeslikeController.store)
 
 export default routes
