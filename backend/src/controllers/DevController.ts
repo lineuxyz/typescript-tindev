@@ -1,4 +1,5 @@
-import Axios, { Request, Response } from 'axios'
+import { Request, Response } from 'express'
+import Axios from 'axios'
 import Dev from '../models/Dev'
 
 class DevController {
@@ -10,8 +11,8 @@ class DevController {
     const users = await Dev.find({
       $and: [
         { _id: { $ne: user } },
-        { _id: { $nin: loggedDev.likes } },
-        { _id: { $nin: loggedDev.deslikes } }
+        { _id: { $nin: loggedDev } },
+        { _id: { $nin: loggedDev } }
       ]
     })
 
