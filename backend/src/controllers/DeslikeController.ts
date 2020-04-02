@@ -1,7 +1,7 @@
-import { Request, Response } from 'axios'
+import { Request, Response } from 'express'
 import Dev from '../models/Dev'
 
-class LikeController {
+class DeslikeController {
   public async store (req: Request, res: Response): Promise<Response> {
     const { devId } = req.params
     const { user } = req.headers
@@ -21,4 +21,4 @@ class LikeController {
   }
 }
 
-export default new LikeController()
+export default new DeslikeController()
