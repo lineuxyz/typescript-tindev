@@ -1,4 +1,4 @@
-import { Request, Response } from 'axios'
+import { Request, Response } from 'express'
 import Dev from '../models/Dev'
 
 class LikeController {
